@@ -4,6 +4,7 @@ metadata:
   name: voting-app-deployment
   labels:
     app: demo-voting-app
+  namespace: voting
 spec:
   replicas: 3
   selector:
@@ -16,7 +17,6 @@ spec:
       labels:
         name: voting-app-pod
         app: demo-voting-app
-
     spec:
       containers:
       - name: voting-app

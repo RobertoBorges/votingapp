@@ -5,6 +5,7 @@ metadata:
   labels:
     name: voting-service
     app: demo-voting-app
+  namespace: voting
 spec:
   type: LoadBalancer
   ports:
