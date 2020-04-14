@@ -39,16 +39,16 @@ az ad sp create-for-rbac \ 
 
 # Create the CLuster AKS with all ADDONs
 az aks create \
---resource-group myResGroup \
+--resource-group $resGroup \
 --name $AKSCluster \
 --node-count 3 \
---service-principal <appId> \
---client-secret <password> \
+--service-principal e68976d2-f413-4625-af16-686ed2a6ad2e \
+--client-secret 2b33ebce-c7f1-4551-aec3-d249cd9506b4 \
 --generate-ssh-keys \
 --network-plugin azure \
 --dns-service-ip $KUBE_DNS_IP \
 --docker-bridge-address $DOCKER_BRIDGE_ADDRESS \
---vnet-subnet-id <vnet id> \
+--vnet-subnet-id /subscriptions/475db780-ab6b-4ebb-8fda-1e9b74bc2c23/resourceGroups/aksdemo-rg/providers/Microsoft.Network/virtualNetworks/aksvnet/subnets/virtualnosubnet \
 --load-balancer-sku standard \
 --enable-vmss \
 --node-zones 1 2 3 \
