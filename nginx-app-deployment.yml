@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-app-deployment
+  labels:
+    app: demo-nginx-app
+  namespace: voting
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      name: nginx-app-pod
+      app: demo-nginx-app
+  template:
+    metadata:
+      name: nginx-app-pod
+      labels:
+        name: nginx-app-pod
+        app: demo-nginx-app
+    spec:
+      containers:
+      - name: nginx-app
+        image: nginx
+        ports:
+        - containerPort: 80
+        resources:
+            limits:
+              cpu: 550m
+              memory: 200Mi
+            requests:
+              cpu: 450m
+              memory: 100Mi
+                      

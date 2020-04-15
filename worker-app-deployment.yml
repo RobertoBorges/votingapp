@@ -6,7 +6,7 @@ metadata:
     app: demo-voting-app
   namespace: voting
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       name: worker-app-pod
@@ -21,3 +21,11 @@ spec:
       containers:
       - name: worker-app
         image: dockersamples/examplevotingapp_worker
+        resources:
+            limits:
+              cpu: 550m
+              memory: 200Mi
+            requests:
+              cpu: 450m
+              memory: 100Mi
+              
